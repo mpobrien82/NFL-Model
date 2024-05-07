@@ -10,15 +10,10 @@ document.addEventListener('DOMContentLoaded', function() {
             // Enable dropdown functionality
             var dropdowns = document.querySelectorAll('.dropdown');
             dropdowns.forEach(function(dropdown) {
-                // Show dropdown on click
                 dropdown.addEventListener('click', function(event) {
                     event.stopPropagation(); // Prevent dropdown from closing when clicking on links
                     var dropdownContent = this.querySelector('.dropdown-content');
-                    if (dropdownContent.style.display === 'block') {
-                        dropdownContent.style.display = 'none';
-                    } else {
-                        dropdownContent.style.display = 'block';
-                    }
+                    dropdownContent.style.display = (dropdownContent.style.display === 'block') ? 'none' : 'block';
                 });
 
                 // Close dropdown when clicking outside
