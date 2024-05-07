@@ -10,11 +10,22 @@ document.addEventListener('DOMContentLoaded', function() {
             // Enable dropdown functionality
             var dropdowns = document.querySelectorAll('.dropdown');
             dropdowns.forEach(function(dropdown) {
-                dropdown.addEventListener('mouseover', function() {
-                    this.querySelector('.dropdown-content').style.display = 'block';
+                // Show dropdown on click
+                dropdown.addEventListener('click', function(event) {
+                    event.stopPropagation(); // Prevent dropdown from closing when clicking on links
+                    var dropdownContent = this.querySelector('.dropdown-content');
+                    if (dropdownContent.style.display === 'block') {
+                        dropdownContent.style.display = 'none';
+                    } else {
+                        dropdownContent.style.display = 'block';
+                    }
                 });
-                dropdown.addEventListener('mouseout', function() {
-                    this.querySelector('.dropdown-content').style.display = 'none';
+
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!dropdown.contains(event.target)) {
+                        dropdown.querySelector('.dropdown-content').style.display = 'none';
+                    }
                 });
             });
         }
