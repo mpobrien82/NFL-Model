@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFL Rush</title>
+</head>
+<body>
+    <h1>NFL Rushing Stats</h1>
+    
+    <div id="navigation"></div> <!-- Empty div for navigation bar -->
+    
+    <!-- Your NFL rushing stats content goes here -->
+
+    <script src="navigation.js"></script> <!-- Include JavaScript file for navigation -->
+</body>
+</html>
