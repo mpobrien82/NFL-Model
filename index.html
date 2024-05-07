@@ -3,38 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload CSV</title>
+    <title>My Website</title>
+    <style>
+        /* Style for dropdown menu */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
 </head>
 <body>
-    <h1>Upload CSV Files</h1>
-    <form id="uploadForm" enctype="multipart/form-data">
-        <input type="file" name="files" id="fileInput" accept=".csv" multiple>
-        <button type="submit">Upload</button>
-    </form>
+    <h1>My Website</h1>
+    
+    <!-- Dropdown menu for navigation -->
+    <div class="dropdown">
+        <span>Navigation</span>
+        <div class="dropdown-content">
+            <a href="#upload">Upload CSV</a>
+            <!-- Add more tabs as needed -->
+        </div>
+    </div>
+    
+    <!-- Content for Upload CSV tab -->
+    <div id="upload" style="display: none;">
+        <h2>Upload CSV</h2>
+        <!-- Include the upload form here -->
+    </div>
+
+    <!-- Add content for other tabs as needed -->
 
     <script>
-        document.getElementById('uploadForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            var files = document.getElementById('fileInput').files;
-
-            for (var i = 0; i < files.length; i++) {
-                var formData = new FormData();
-                formData.append('file', files[i]);
-
-                fetch('/upload', {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data);
-                    // Handle response from backend
-                })
-                .catch(error => {
-                    console.error('Error:', error);
+        // JavaScript code to show/hide content based on selected tab
+        document.addEventListener('DOMContentLoaded', function() {
+            var tabs = document.querySelectorAll('.dropdown-content a');
+            tabs.forEach(function(tab) {
+                tab.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    var tabId = this.getAttribute('href').substring(1);
+                    var tabContent = document.getElementById(tabId);
+                    hideAllTabs();
+                    tabContent.style.display = 'block';
                 });
-            }
+            });
         });
+
+        function hideAllTabs() {
+            var tabs = document.querySelectorAll('[id^="tab"]');
+            tabs.forEach(function(tab) {
+                tab.style.display = 'none';
+            });
+        }
     </script>
 </body>
 </html>
+
