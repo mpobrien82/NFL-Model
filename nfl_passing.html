@@ -6,7 +6,7 @@
     <title>NFL Passing</title>
     <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
     <style>
-        th {
+        th, td {
             padding: 10px;
             text-align: left;
         }
@@ -85,54 +85,20 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Get data from localStorage
-            const uploadedData = localStorage.getItem('uploadedData');
-            if (uploadedData) {
-                const data = JSON.parse(uploadedData);
-                // Filter data to include only the specified columns
-                const filteredData = data.map(row => ({
-                    player: row.player,
-                    player_id: row.player_id,
-                    position: row.position,
-                    team_name: row.team_name,
-                    player_game_count: row.player_game_count,
-                    base_dropbacks: row.base_dropbacks,
-                    blitz_interceptions: row.blitz_interceptions,
-                    blitz_attempts: row.blitz_attempts,
-                    blitz_completions: row.blitz_completions,
-                    blitz_touchdowns: row.blitz_touchdowns,
-                    blitz_yards: row.blitz_yards,
-                    no_blitz_interceptions: row.no_blitz_interceptions,
-                    no_blitz_attempts: row.no_blitz_attempts,
-                    no_blitz_completions: row.no_blitz_completions,
-                    no_blitz_touchdowns: row.no_blitz_touchdowns,
-                    no_blitz_yards: row.no_blitz_yards,
-                    no_pressure_interceptions: row.no_pressure_interceptions,
-                    no_pressure_attempts: row.no_pressure_attempts,
-                    no_pressure_completions: row.no_pressure_completions,
-                    no_pressure_touchdowns: row.no_pressure_touchdowns,
-                    no_pressure_yards: row.no_pressure_yards,
-                    pressure_interceptions: row.pressure_interceptions,
-                    pressure_attempts: row.pressure_attempts,
-                    pressure_completions: row.pressure_completions,
-                    pressure_touchdowns: row.pressure_touchdowns,
-                    pressure_yards: row.pressure_yards
-                }));
+            // Retrieve data from localStorage
+            const passingData = JSON.parse(localStorage.getItem('uploadedData0')); // Change index if needed
 
-                // Populate the table
-                const tableBody = document.getElementById('passingData');
-                filteredData.forEach(row => {
-                    const tr = document.createElement('tr');
-                    Object.values(row).forEach(value => {
-                        const td = document.createElement('td');
-                        td.textContent = value;
-                        tr.appendChild(td);
-                    });
-                    tableBody.appendChild(tr);
+            // Display data in the table
+            const passingTable = document.getElementById('passingData');
+            passingData.forEach(function(rowData) {
+                const row = document.createElement('tr');
+                Object.values(rowData).forEach(function(value) {
+                    const cell = document.createElement('td');
+                    cell.textContent = value;
+                    row.appendChild(cell);
                 });
-            } else {
-                console.log('No uploaded data found.');
-            }
+                passingTable.appendChild(row);
+            });
         });
     </script>
 </body>
