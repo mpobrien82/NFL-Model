@@ -10,6 +10,20 @@
             padding: 10px;
             text-align: left;
         }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
     </style>
 </head>
 <body>
@@ -29,6 +43,44 @@
             <!-- Add more links as needed -->
         </div>
     </div>  
+
+    <h2>NFL Passing 23</h2>
+    <table id="passingTable">
+        <thead>
+            <tr>
+                <th>Player</th>
+                <th>Player ID</th>
+                <th>Position</th>
+                <th>Team Name</th>
+                <th>Player Game Count</th>
+                <th>Base Dropbacks</th>
+                <th>Blitz Interceptions</th>
+                <th>Blitz Attempts</th>
+                <th>Blitz Completions</th>
+                <th>Blitz Touchdowns</th>
+                <th>Blitz Yards</th>
+                <th>No Blitz Interceptions</th>
+                <th>No Blitz Attempts</th>
+                <th>No Blitz Completions</th>
+                <th>No Blitz Touchdowns</th>
+                <th>No Blitz Yards</th>
+                <th>No Pressure Interceptions</th>
+                <th>No Pressure Attempts</th>
+                <th>No Pressure Completions</th>
+                <th>No Pressure Touchdowns</th>
+                <th>No Pressure Yards</th>
+                <th>Pressure Interceptions</th>
+                <th>Pressure Attempts</th>
+                <th>Pressure Completions</th>
+                <th>Pressure Touchdowns</th>
+                <th>Pressure Yards</th>
+            </tr>
+        </thead>
+        <tbody id="passingData">
+            <!-- Table body will be populated dynamically -->
+        </tbody>
+    </table>
+
     <script src="navigation.js"></script> <!-- Include JavaScript file for navigation -->
 </body>
 </html>
