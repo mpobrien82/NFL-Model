@@ -9,6 +9,18 @@
         /* Add style for green check mark */
         .checkmark {
             color: green;
+            font-size: 20px;
+            margin-left: 10px;
+        }
+        
+        /* Style for file input and label */
+        .file-upload-container {
+            margin-bottom: 20px;
+        }
+
+        .file-upload-label {
+            font-size: 18px;
+            margin-right: 10px;
         }
     </style>
 </head>
@@ -32,38 +44,38 @@
 
     <h2>Upload CSV File</h2>
     <!-- Add multiple file inputs with labels -->
-    <div>
-        <label for="fileInput1">PFF Pass 23</label>
+    <div class="file-upload-container">
+        <label class="file-upload-label" for="fileInput1">PFF Pass 23</label>
         <input type="file" id="fileInput1" class="fileInput">
         <span class="checkmark" id="checkmark1"></span>
     </div>
-    <div>
-        <label for="fileInput2">PFF Rush 23</label>
+    <div class="file-upload-container">
+        <label class="file-upload-label" for="fileInput2">PFF Rush 23</label>
         <input type="file" id="fileInput2" class="fileInput">
         <span class="checkmark" id="checkmark2"></span>
     </div>
-    <div>
-        <label for="fileInput3">PFF Receiving 23</label>
+    <div class="file-upload-container">
+        <label class="file-upload-label" for="fileInput3">PFF Receiving 23</label>
         <input type="file" id="fileInput3" class="fileInput">
         <span class="checkmark" id="checkmark3"></span>
     </div>
-    <div>
-        <label for="fileInput4">PFF Pass 24</label>
+    <div class="file-upload-container">
+        <label class="file-upload-label" for="fileInput4">PFF Pass 24</label>
         <input type="file" id="fileInput4" class="fileInput">
         <span class="checkmark" id="checkmark4"></span>
     </div>
-    <div>
-        <label for="fileInput5">PFF Rush 24</label>
+    <div class="file-upload-container">
+        <label class="file-upload-label" for="fileInput5">PFF Rush 24</label>
         <input type="file" id="fileInput5" class="fileInput">
         <span class="checkmark" id="checkmark5"></span>
     </div>
-    <div>
-        <label for="fileInput6">PFF Receiving 24</label>
+    <div class="file-upload-container">
+        <label class="file-upload-label" for="fileInput6">PFF Receiving 24</label>
         <input type="file" id="fileInput6" class="fileInput">
         <span class="checkmark" id="checkmark6"></span>
     </div>
-    <div>
-        <label for="fileInput7">PFRef</label>
+    <div class="file-upload-container">
+        <label class="file-upload-label" for="fileInput7">PFRef</label>
         <input type="file" id="fileInput7" class="fileInput">
         <span class="checkmark" id="checkmark7"></span>
     </div>
@@ -106,4 +118,5 @@
     </script>
 </body>
 </html>
+
 
