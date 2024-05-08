@@ -24,8 +24,38 @@
         </div>
     </div>
 
-    <!-- Your NFL Passing content goes here -->
-    
+    <h2>Upload CSV File</h2>
+    <input type="file" id="fileInput">
+
     <script src="navigation.js"></script> <!-- Include JavaScript file for navigation -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const fileInput = document.getElementById('fileInput');
+
+            fileInput.addEventListener('change', function(event) {
+                const file = event.target.files[0];
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    const csv = e.target.result;
+                    const data = parseCSV(csv);
+
+                    // Save the parsed data to localStorage
+                    localStorage.setItem('uploadedData', JSON.stringify(data));
+                };
+
+                reader.readAsText(file);
+            });
+
+            function parseCSV(csv) {
+                // Implement CSV parsing logic here
+                // You can use libraries like PapaParse for parsing CSV
+                // For simplicity, let's assume the CSV is already parsed
+                // and returned as an array of objects
+                return [{}, {}, {}]; // Example data
+            }
+        });
+    </script>
 </body>
 </html>
